@@ -10,6 +10,7 @@
         function success(position) {
           console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
           let url = "https://www.ddboline.net/weather/index.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
+          console.log("url " + url);
           let xmlhttp = new XMLHttpRequest();
           xmlhttp.onload = function() {
             document.getElementById('weather-frame').innerHTML = xmlhttp.responseText;
