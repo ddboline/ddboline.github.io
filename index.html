@@ -1,37 +1,41 @@
 <html>
 <body>
-<div>
-  <input type="button" name="update_location" value="Update Location" onclick="updateLocation();"/>
-  <br>
-  <iframe src="https://cloud.ddboline.net/weather/index.html" id="weather-frame" height="50" width="100" align="center"></iframe>
-  <script>
-    !function() {
-      let textarea = document.getElementById('weather-frame');
-      if (textarea) {
-        if (textarea.getAttribute('height')) {
-          textarea.setAttribute('height', Math.floor(window.innerHeight * 270 / 856.));
+  <a href="resume_Daniel_Boline.pdf">Resume</a>
+
+  <h3>Demos:</h3>
+
+  <div>
+    <input type="button" name="update_location" value="Update Location" onclick="updateLocation();"/>
+    <br>
+    <iframe src="https://cloud.ddboline.net/weather/index.html" id="weather-frame" height="50" width="100" align="center"></iframe>
+    <script>
+      !function() {
+        let textarea = document.getElementById('weather-frame');
+        if (textarea) {
+          if (textarea.getAttribute('height')) {
+            textarea.setAttribute('height', Math.floor(window.innerHeight * 270 / 856.));
+          }
+          if (textarea.getAttribute('width')) {
+            textarea.setAttribute('width', Math.floor(window.innerWidth * 850 / 1105.));
+          }
         }
-        if (textarea.getAttribute('width')) {
-          textarea.setAttribute('width', Math.floor(window.innerWidth * 850 / 1105.));
+      }();
+      function updateLocation() {
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(
+          function success(position) {
+            console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
+            let url = "https://cloud.ddboline.net/weather/index.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
+            console.log("url " + url);
+            document.getElementById("weather-frame").src = url;
+            document.getElementById("weather-frame").contentDocument.location.reload(true);
+          },
+          function error(error_message) {
+            // for when getting location results in an error
+            console.error('No location retreived', error_message)
+          });
         }
       }
-    }();
-    function updateLocation() {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-        function success(position) {
-          console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
-          let url = "https://cloud.ddboline.net/weather/index.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
-          console.log("url " + url);
-          document.getElementById("weather-frame").src = url;
-          document.getElementById("weather-frame").contentDocument.location.reload(true);
-        },
-        function error(error_message) {
-          // for when getting location results in an error
-          console.error('No location retreived', error_message)
-        });
-      }
-    }
-  </script>
-</div>
+    </script>
+  </div>
 </body>
