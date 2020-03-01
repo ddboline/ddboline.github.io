@@ -8,6 +8,7 @@
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
         function success(position) {
+          console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
           let url = "https://www.ddboline.net/weather/index.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
           let xmlhttp = new XMLHttpRequest();
           xmlhttp.onload = function() {
