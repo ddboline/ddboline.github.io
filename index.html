@@ -5,9 +5,13 @@
   <h3>Demos:</h3>
 
   <div>
+    <h4><a href="https://github.com/ddboline/weather_api_rust">The Weather</a></h4>
+    Returns the current weather and forecast for the next 5 days, default location is NYC, press the button to use your current location.
+    The app uses 
+    <br><br>
     <input type="button" name="update_location" value="Update Location" onclick="updateLocation();"/>
     <br>
-    <iframe src="https://cloud.ddboline.net/weather/index.html" id="weather-frame" height="50" width="100" align="center"></iframe>
+    <iframe src="https://cloud.ddboline.net/weather/index.html?zip=10001" id="weather-frame" height="50" width="100" align="center"></iframe>
     <script>
       !function() {
         let textarea = document.getElementById('weather-frame');
@@ -37,5 +41,26 @@
         }
       }
     </script>
+  </div>
+
+  <div>
+    <h4><a href="https://github.com/ddboline/garmin_rust">Garmin App</a></h4>
+    This demo combines information from my Garmin Activity Watches, Fitbit Watch, and Strava,
+    and produces a series of reports which include plots produced with d3js.
+    <br>
+    <iframe src="https://cloud.ddboline.net/garmin/demo.html" id="garmin-frame" height="100" width="100" align="center"></iframe>
+    <script>
+      !function() {
+        let textarea = document.getElementById('garmin-frame');
+        if (textarea) {
+          if (textarea.getAttribute('height')) {
+            textarea.setAttribute('height', Math.floor(window.innerHeight * 800 / 856.));
+          }
+          if (textarea.getAttribute('width')) {
+            textarea.setAttribute('width', Math.floor(window.innerWidth * 850 / 1105.));
+          }
+        }
+      }();
+  </script>
   </div>
 </body>
