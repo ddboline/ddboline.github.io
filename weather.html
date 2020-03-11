@@ -31,9 +31,6 @@
             let weather = document.getElementById("weather-frame");
             if (weather) {
                 weather.src = url;
-                if (weather.contentDocument) {
-                    weather.contentDocument.location.reload(true);
-                }
             }
           },
           function error(error_message) {
