@@ -28,8 +28,13 @@
             console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
             let url = "https://cloud.ddboline.net/weather/plot.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
             console.log("url " + url);
-            document.getElementById("weather-frame").src = url;
-            document.getElementById("weather-frame").contentDocument.location.reload(true);
+            let weather = document.getElementById("weather-frame");
+            if (weather) {
+                weather.src = url;
+                if (weather.contentDocument) {
+                    weather.contentDocument.location.reload(true);
+                }
+            }
           },
           function error(error_message) {
             // for when getting location results in an error

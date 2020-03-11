@@ -20,14 +20,21 @@
     }();
     function loadTheWeather() {
       let iframe = document.getElementById("main-iframe");
-      iframe.src = "weather.html";
-      iframe.contentDocument.location.reload(true);
+      if (iframe) {
+        iframe.src = "weather.html";
+        if (iframe.contentDocument) {
+          iframe.contentDocument.location.reload(true);
+        }
+      }
     }
     function loadGarmin() {
       let iframe = document.getElementById("main-iframe");
-      iframe.src = "garmin.html";
-      iframe.contentDocument.location.reload(true);
+      if (iframe) {
+        iframe.src = "garmin.html";
+        if (iframe.contentDocument) {
+          iframe.contentDocument.location.reload(true);
+        }
+      }
     }
   </script>
-
 </body>
