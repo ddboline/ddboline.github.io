@@ -1,67 +1,33 @@
 <html>
 <body>
-  <a href="resume_Daniel_Boline.pdf">Resume</a>
-
   <h3>Demos:</h3>
+  <input type="button" name="the_weather" value="The Weather" onclick="loadTheWeather();"/>
+  <input type="button" name="garmin" value="Garmin Watch Analysis" onclick="loadGarmin();"/>
+  <br>
+  <iframe src="weather.html" id="main-iframe" height="100" width="100" align="center"></iframe>
 
-  <div>
-    <h4><a href="https://github.com/ddboline/weather_api_rust">The Weather</a></h4>
-    Returns the current weather and forecast for the next 5 days, default location is NYC, press the button to use your current location.
-    The app uses the <a href="https://crates.io/crates/weather_util_rust">weather_util_rust</a> library
-    which pulls data from <a href="https://openweathermap.org/">openweathermap.org</a> and adds caching.
-    <br><br>
-    <input type="button" name="update_location" value="Update Location" onclick="updateLocation();"/>
-    <br>
-    <iframe src="https://cloud.ddboline.net/weather/index.html?zip=10001" id="weather-frame" height="50" width="100" align="center"></iframe>
-    <script>
-      !function() {
-        let textarea = document.getElementById('weather-frame');
-        if (textarea) {
-          if (textarea.getAttribute('height')) {
-            textarea.setAttribute('height', Math.floor(window.innerHeight * 270 / 856.));
-          }
-          if (textarea.getAttribute('width')) {
-            textarea.setAttribute('width', Math.floor(window.innerWidth * 850 / 1105.));
-          }
+  <script>
+    !function() {
+      let textarea = document.getElementById('main-iframe');
+      if (textarea) {
+        if (textarea.getAttribute('height')) {
+          textarea.setAttribute('height', Math.floor(window.innerHeight * 900 / 856.));
         }
-      }();
-      function updateLocation() {
-        if ("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition(
-          function success(position) {
-            console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
-            let url = "https://cloud.ddboline.net/weather/index.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
-            console.log("url " + url);
-            document.getElementById("weather-frame").src = url;
-            document.getElementById("weather-frame").contentDocument.location.reload(true);
-          },
-          function error(error_message) {
-            // for when getting location results in an error
-            console.error('No location retreived', error_message)
-          });
+        if (textarea.getAttribute('width')) {
+          textarea.setAttribute('width', Math.floor(window.innerWidth * 900 / 1105.));
         }
       }
-    </script>
-  </div>
-
-  <div>
-    <h4><a href="https://github.com/ddboline/garmin_rust">Garmin App</a></h4>
-    This demo combines information from my Garmin Activity Watches, Fitbit Watch, and Strava,
-    and produces a series of reports which include plots produced with d3js.
-    <br>
-    <iframe src="https://cloud.ddboline.net/garmin/demo.html" id="garmin-frame" height="100" width="100" align="center"></iframe>
-    <script>
-      !function() {
-        let textarea = document.getElementById('garmin-frame');
-        if (textarea) {
-          if (textarea.getAttribute('height')) {
-            textarea.setAttribute('height', Math.floor(window.innerHeight * 800 / 856.));
-          }
-          if (textarea.getAttribute('width')) {
-            textarea.setAttribute('width', Math.floor(window.innerWidth * 850 / 1105.));
-          }
-        }
-      }();
+    }();
+    function loadTheWeather() {
+      let iframe = document.getElementById("main-iframe");
+      iframe.src = "weather.html";
+      iframe.contentDocument.location.reload(true);
+    }
+    function loadGarmin() {
+      let iframe = document.getElementById("main-iframe");
+      iframe.src = "garmin.html";
+      iframe.contentDocument.location.reload(true);
+    }
   </script>
-  </div>
+
 </body>
