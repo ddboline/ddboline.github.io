@@ -17,7 +17,7 @@
     <iframe src="https://cloud.ddboline.net/weather/plot.html?zip=10001" id="weather-frame" height="100" width="100" align="center"></iframe>
     <script>
       let current_location = "";
-      let url = 'https://cloud.ddboline.net/weather/weather/index.html';
+      let url = 'https://cloud.ddboline.net/weather/index.html';
       !function() {
         if (typeof current_location == "undefined") {
           current_location = "";
@@ -33,7 +33,7 @@
         }
       }();
       function displayText() {
-        url = "https://cloud.ddboline.net/weather/weather/index.html";
+        url = "https://cloud.ddboline.net/weather/index.html";
         console.log(typeof current_location);
         if (typeof current_location == "undefined") {
           current_location = "";
@@ -49,7 +49,7 @@
         }
       }
       function displayPlot() {
-        url = "https://cloud.ddboline.net/weather/weather/plot.html";
+        url = "https://cloud.ddboline.net/weather/plot.html";
         console.log(typeof current_location);
         if (typeof current_location == "undefined") {
           current_location = "";
