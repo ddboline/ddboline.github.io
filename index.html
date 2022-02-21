@@ -6,6 +6,8 @@
   <h3>Demos:</h3>
   <input type="button" name="the_weather" value="The Weather" onclick="loadTheWeather();"/>
   <input type="button" name="garmin" value="Garmin Watch Analysis" onclick="loadGarmin();"/>
+  <input type="button" name="security" value="Security Log Summary" onclick="loadSecurity();"/>
+  <input type="button" name="openapi" value="Openapi Specs" onclick="loadOpenapi();"/>
   <br>
   <iframe src="weather.html" id="main-iframe" height="100" width="100" align="center"></iframe>
 
@@ -21,17 +23,23 @@
         }
       }
     }();
-    function loadTheWeather() {
+    function loadIframe(url) {
       let iframe = document.getElementById("main-iframe");
       if (iframe) {
-        iframe.src = "weather.html";
+        iframe.src = url;
       }
     }
+    function loadTheWeather() {
+      loadIframe("weather.html");
+    }
     function loadGarmin() {
-      let iframe = document.getElementById("main-iframe");
-      if (iframe) {
-        iframe.src = "garmin.html";
-      }
+      loadIframe("garmin.html");
+    }
+    function loadSecurity() {
+      loadIframe("security.html");
+    }
+    function loadOpenapi() {
+      loadIframe("openapi.html");
     }
   </script>
 </body>
