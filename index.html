@@ -8,6 +8,7 @@
   <input type="button" name="garmin" value="Garmin Watch Analysis" onclick="loadGarmin();"/>
   <input type="button" name="security" value="Security Log Summary" onclick="loadSecurity();"/>
   <input type="button" name="openapi" value="Openapi Specs" onclick="loadOpenapi();"/>
+  <input type="button" name="wasm-weather" value="WASM Weather" onclick="loadWasmWeather();"/>
   <br>
   <iframe src="weather.html" id="main-iframe" height="100" width="100" align="center"></iframe>
 
@@ -40,6 +41,9 @@
     }
     function loadOpenapi() {
       loadIframe("openapi.html");
+    }
+    function loadWasmWeather() {
+      loadIframe("wasm_weather.html");
     }
   </script>
 </body>
