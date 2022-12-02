@@ -2,10 +2,16 @@
 <body>
   <div>
     <h4><a href="https://github.com/ddboline/weather_api_rust" target="_blank">The Weather</a></h4>
-    Returns the current weather and forecast for the next 5 days, default location is NYC, press the button to use your current location.
+    <p> Returns the current weather and forecast for the next 5 days, default location is NYC, <br>
+      press the button to use your current location.
+    </p>
+    <p>
     The app uses the <a href="https://crates.io/crates/weather_util_rust" target="_blank">weather_util_rust</a> library
     which pulls data from <a href="https://openweathermap.org/" target="_blank">openweathermap.org</a> and adds caching.
-    <br><br>
+    </p>
+    <p>
+    The buttons are controlled by a wasm frontend, which stores history in local storage.
+    </p>
     <iframe src="https://cloud.ddboline.net/wasm_index/index.html?zip=10001" id="weather-frame" height="100" width="100" align="center"></iframe>
     <script>
       !function() {
